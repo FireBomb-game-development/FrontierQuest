@@ -375,6 +375,7 @@ MonoBehaviour:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
   - {x: 4, y: 5}
+  jumpAttackVelocity: {x: 5, y: -6}
   attackVelocityDuration: 0.1
   comboResetTime: 1
   moveSpeed: 8
@@ -398,7 +399,7 @@ Transform:
   m_GameObject: {fileID: 1042336947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.97, y: 0.04, z: 0}
+  m_LocalPosition: {x: -4.7, y: 10.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -798,7 +799,7 @@ Transform:
   m_GameObject: {fileID: 1511779594}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.43, y: 4.53, z: 0.06128773}
+  m_LocalPosition: {x: -0.43, y: 3.71, z: 0.06128773}
   m_LocalScale: {x: 3.161827, y: 8.443838, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

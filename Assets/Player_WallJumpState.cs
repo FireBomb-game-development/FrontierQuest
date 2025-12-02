@@ -17,7 +17,13 @@ public class Player_WallJumpState : EntityState
     public override void Update()
     {
         base.Update();
-        if (rb.linearVelocity.y < 0)
+
+        // allow player go to jump attack state before falling
+        if(input.Player.Attack.WasPressedThisFrame())
+        {
+            stateMachine.changeState(player.jumpAttackState);
+        }
+        if (rb.linearVelocity.y < 0 && stateMachine.CurrentState!= player.jumpAttackState)
         {
             stateMachine.changeState(player.fallState);
         }
