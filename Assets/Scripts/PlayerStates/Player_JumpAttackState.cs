@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_JumpAttackState : EntityState
+public class Player_JumpAttackState : PlayerState
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
