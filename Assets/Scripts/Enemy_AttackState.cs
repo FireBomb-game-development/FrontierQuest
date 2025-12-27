@@ -11,7 +11,7 @@ public class Enemy_AttackState : EnemyState
     public override void Update()
     {
         base.Update();
-        if (triggerCalled) stateMachine.changeState(enemy.idleState);
+        if (triggerCalled) stateMachine.changeState(enemy.battleState);
     }
 
 }

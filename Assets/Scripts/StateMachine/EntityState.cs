@@ -7,7 +7,7 @@ public abstract class EntityState
     protected string animBoolName;
     protected Animator anim;
     protected Rigidbody2D rb;
-    
+
     protected bool triggerCalled;
 
     protected float stateTimer;
@@ -29,6 +29,7 @@ public abstract class EntityState
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
+        UpdateAnimationParameters();
 
     }
     // every time state is exited and change to new one, this function will be called
@@ -37,9 +38,14 @@ public abstract class EntityState
         anim.SetBool(animBoolName, false);
     }
 
-    public void CallAnimationTrigger()
+    public void AnimationTrigger()
     {
         triggerCalled = true;
+    }
+
+    public virtual void UpdateAnimationParameters()
+    {
+
     }
 
 }

@@ -18,7 +18,7 @@ public class Entity : MonoBehaviour
 
     [Header("Collision detaction")]
     [SerializeField] protected LayerMask whatIsGround;
-    [SerializeField] private float groundCheckDistance;    
+    [SerializeField] private float groundCheckDistance;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private Transform primaryWallCheck;
@@ -37,21 +37,22 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
+
         HandleColisionDetection();
         stateMachine.UpdateActiveState();
 
     }
 
 
-    public void CallAnimationTrigger()
+    public void CurrentStateAnimationTrigger()
     {
-        stateMachine.CurrentState.CallAnimationTrigger();
+        stateMachine.CurrentState.AnimationTrigger();
     }
 
 
@@ -60,7 +61,7 @@ public class Entity : MonoBehaviour
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }
-    private void HandleFlip(float xVelocity)
+    public void HandleFlip(float xVelocity)
     {
         if (xVelocity > 0 && !facingRight)
             Flip();
@@ -93,8 +94,8 @@ public class Entity : MonoBehaviour
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance));
         Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + new Vector3(wallCheckDistance * facingDiraction, 0));
 
-        if(secondaryWallCheck != null) Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * facingDiraction, 0));
-       
+        if (secondaryWallCheck != null) Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * facingDiraction, 0));
+
 
     }
 

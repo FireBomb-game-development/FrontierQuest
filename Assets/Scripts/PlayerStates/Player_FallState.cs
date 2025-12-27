@@ -11,7 +11,6 @@ public class Player_FallState : Player_AirState
     public override void Update()
     {
         base.Update();
-        Debug.Log("started falll state");
         if (player.groundDetected)
             stateMachine.changeState(player.idleState);
 

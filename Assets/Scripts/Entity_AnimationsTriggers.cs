@@ -3,7 +3,7 @@ using UnityEngine;
 public class Entity_AnimationsTriggers : MonoBehaviour
 {
 
-private Entity entity;
+    private Entity entity;
 
     private void Awake()
     {
@@ -11,6 +11,6 @@ private Entity entity;
     }
     private void CurrentStateTrigger()
     {
-        entity.CallAnimationTrigger();
+        entity.CurrentStateAnimationTrigger();
     }
 }

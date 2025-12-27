@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy_BattleState : EnemyState
 {
     private Transform player;
+    [SerializeField]private float lastTimeWasInBattle;
     public Enemy_BattleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
@@ -12,17 +13,28 @@ public class Enemy_BattleState : EnemyState
     public override void Update()
     {
         base.Update();
-        if (WithinAttackRange()) stateMachine.changeState(enemy.attackState);
-        else enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);
+        if (enemy.PlayerDetection()) UpdateBattleTimer();
+        if (BattleTimeIsOver()) stateMachine.changeState(enemy.idleState);
+        if (PlayerWithinAttackRange()&& enemy.PlayerDetection()) stateMachine.changeState(enemy.attackState);
+        else GetCloserToPlayer();
     }
 
     public override void Enter()
     {
         base.Enter();
         if (player == null) player = enemy.PlayerDetection().transform;
+        if (ShouldRetreat())
+        {
+            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
+            enemy.HandleFlip(DirectionToPlayer());
+        } 
 
     }
-    private bool WithinAttackRange() => DistanceToPlayer() < enemy.attackDistance;
+    private bool BattleTimeIsOver() => Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
+    private void UpdateBattleTimer()=> lastTimeWasInBattle = Time.time;
+    private bool PlayerWithinAttackRange() => DistanceToPlayer() < enemy.attackDistance;
+    private void GetCloserToPlayer() { enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y); }
+    private bool ShouldRetreat() => DistanceToPlayer() < enemy.minRetreatDistance;
 
     private float DistanceToPlayer()
     {

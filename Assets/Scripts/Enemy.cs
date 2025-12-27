@@ -12,6 +12,9 @@ public class Enemy : Entity
     [Header("Battle details")]
     public float battleMoveSpeed = 3;
     public float attackDistance = 2;
+    public float battleTimeDuration = 5;
+    public float minRetreatDistance = 1;
+    public Vector2 retreatVelocity;
 
     [Header("Movement details")]
     public float idleTime = 2;
@@ -42,6 +45,9 @@ public class Enemy : Entity
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (facingDiraction * attackDistance), playerCheck.position.y));
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (facingDiraction * minRetreatDistance), playerCheck.position.y));
     }
 
 }
