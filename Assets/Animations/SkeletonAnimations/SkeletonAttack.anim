@@ -27,7 +27,7 @@ AnimationClip:
     - time: 0.16666667
       value: {fileID: -7138319701972840668, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - time: 0.25
-      value: {fileID: 3291756735606063980, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
+      value: {fileID: -3847943250117979209, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - time: 0.33333334
       value: {fileID: -8264367007930756521, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - time: 0.41666666
@@ -81,7 +81,7 @@ AnimationClip:
     - {fileID: -3847943250117979209, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - {fileID: -529646562509220946, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - {fileID: -7138319701972840668, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
-    - {fileID: 3291756735606063980, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
+    - {fileID: -3847943250117979209, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - {fileID: -8264367007930756521, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - {fileID: 6926094506201588144, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
     - {fileID: 3844375112415055413, guid: 5f98ddca758e44e5892f88aab0e1df00, type: 3}
@@ -121,6 +121,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.5833333
+    functionName: AttackTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.4166666
     functionName: CurrentStateTrigger
     data: 
