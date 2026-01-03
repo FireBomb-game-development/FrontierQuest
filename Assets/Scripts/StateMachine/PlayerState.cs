@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class PlayerState :EntityState
+public abstract class PlayerState : EntityState
 {
     protected Player player;
     protected PlayerInputSet input;
@@ -18,8 +18,8 @@ public abstract class PlayerState :EntityState
     public override void Update()
     {
         base.Update();
-        
-        if (input.Player.Dash.WasPressedThisFrame() && CanDash()) stateMachine.changeState(player.dashState);
+
+        if (input.Player.Dash.WasPressedThisFrame() && CanDash()) stateMachine.ChangeState(player.dashState);
 
     }
 
