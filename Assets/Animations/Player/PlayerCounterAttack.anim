@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: chestOpen
+  m_Name: PlayerCounterAttack
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,21 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: c9236d3549106440a8a97a7493204354, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: f9d8057e764d2414794c599d4be41df1, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 68d85fde88b8f486aa2f355ef3c36e78, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 00df3daf4f2414e33b7e7540ee67cc31, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: d636b2d7facb1428c8daabf363dbe7aa, type: 3}
+      value: {fileID: -381468241496348146, guid: e8158e678c090440ab5c8a50f40cdbe6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -52,17 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: c9236d3549106440a8a97a7493204354, type: 3}
-    - {fileID: 21300000, guid: f9d8057e764d2414794c599d4be41df1, type: 3}
-    - {fileID: 21300000, guid: 68d85fde88b8f486aa2f355ef3c36e78, type: 3}
-    - {fileID: 21300000, guid: 00df3daf4f2414e33b7e7540ee67cc31, type: 3}
-    - {fileID: 21300000, guid: d636b2d7facb1428c8daabf363dbe7aa, type: 3}
+    - {fileID: -381468241496348146, guid: e8158e678c090440ab5c8a50f40cdbe6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.41666666
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

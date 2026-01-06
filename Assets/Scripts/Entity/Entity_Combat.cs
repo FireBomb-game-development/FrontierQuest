@@ -16,14 +16,11 @@ public class Entity_Combat : MonoBehaviour
         foreach( var target in GetDetectedColiders())
         {
             IDamagable damagable = target.GetComponent<IDamagable>();
-            ICounterable counterable = target.GetComponent<ICounterable>();
-            counterable?.handleCounter();
-            if (counterable == null) Debug.Log(" countrable is null");
             damagable?.TakeDamage(damage,transform);
         }
     }
 
-    private Collider2D[] GetDetectedColiders() => Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
+    protected Collider2D[] GetDetectedColiders() => Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
 
     private void OnDrawGizmos()
     {
