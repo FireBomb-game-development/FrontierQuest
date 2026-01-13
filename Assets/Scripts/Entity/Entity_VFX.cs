@@ -6,12 +6,16 @@ public class Entity_VFX : MonoBehaviour
 
     private SpriteRenderer sr;
 
-    [Header("On damage VFX")]
+    [Header("On Taking damage VFX")]
     [SerializeField] private Material onDamageMaterial;
     [SerializeField] private float onDamageVfxDuration = .2f;
     private Material originMaterial;
     private Coroutine onDamageVfxCoroitine;
 
+
+    [Header("On Doing Damage VFX")]
+    [SerializeField] private GameObject hitVfx;
+    [SerializeField] private Color hitVfxColor = Color.white;
 
     private void Awake()
     {
@@ -19,6 +23,11 @@ public class Entity_VFX : MonoBehaviour
         originMaterial = sr.material;
     }
 
+    public void CreateOnHitVFX(Transform target)
+    {
+        GameObject vfx = Instantiate(hitVfx, target.position, Quaternion.identity);
+        vfx.GetComponentInChildren<SpriteRenderer>().color = hitVfxColor;
+    }
 
     public void PlayOnDamageVfx()
     {

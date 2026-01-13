@@ -2,9 +2,12 @@ using UnityEngine;
 using System.Collections;
 
 using UnityEditor.ShaderGraph.Internal;
+using System;
 
 public class Entity : MonoBehaviour
 {
+    public event Action OnFlipped;
+
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
     protected StateMachine stateMachine;
@@ -89,12 +92,14 @@ public class Entity : MonoBehaviour
             Flip();
         else if (xVelocity < 0 && facingRight)
             Flip();
+        
     }
     public void Flip()
     {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
         facingDiraction *= -1;
+        OnFlipped?.Invoke();
     }
 
     private void HandleColisionDetection()
