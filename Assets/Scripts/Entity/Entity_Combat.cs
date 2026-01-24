@@ -22,8 +22,9 @@ public class Entity_Combat : MonoBehaviour
         {
             IDamagable damagable = target.GetComponent<IDamagable>();
             if(damagable== null)continue;
-            damagable.TakeDamage(damage, transform);
-            vfx.CreateOnHitVFX(target.transform);
+            bool succesfullHit = damagable.TakeDamage(damage, transform);
+            if(succesfullHit)vfx.CreateOnHitVFX(target.transform);
+            
         }
     }
 
