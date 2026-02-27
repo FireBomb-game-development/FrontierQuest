@@ -20,6 +20,30 @@ public class EntityStats : MonoBehaviour
     }
 
 
+
+    public float GetArmorMitigation(float aramorReduction)
+    {
+        float baseArmor = defence.armor.GetValue();
+        float bonusArmor = major.strength.GetValue();
+        float totaArmor = baseArmor + bonusArmor;
+        
+        float reductionMultiplier = Mathf.Clamp(1 - aramorReduction,0,1);
+        float effectiveArmor = totaArmor * reductionMultiplier;
+
+        float mitigation = effectiveArmor / (effectiveArmor +100);
+        float mitigationCap = 0.85f; // Max mitigation is 85%\
+        float finalMitigation = Mathf.Clamp(mitigation,0,mitigationCap); // lock mitigation between min and max values
+        return finalMitigation;
+
+
+    }
+
+    public float GetArmorReduction()
+    {
+        float finalReduction =  offence.aramorReduction.GetValue()/100;
+        return finalReduction;
+
+    }
     public float getEvasion()
     {
         float baseEvasion = defence.evasion.GetValue();

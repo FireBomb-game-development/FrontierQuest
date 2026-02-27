@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   major:
     strength:
-      baseValue: 20
+      baseValue: 0
     agility:
       baseValue: 0
     intelegence:
@@ -2212,8 +2212,10 @@ MonoBehaviour:
     damage:
       baseValue: 10
     critPower:
-      baseValue: 0
+      baseValue: 250
     critchance:
+      baseValue: 60
+    aramorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0
@@ -2222,7 +2224,7 @@ MonoBehaviour:
     lightningDamage:
       baseValue: 0
   maxHealth:
-    baseValue: 100
+    baseValue: 10000
 --- !u!1 &1094868562
 GameObject:
   m_ObjectHideFlags: 0
@@ -16843,7 +16845,7 @@ Transform:
   m_GameObject: {fileID: 1669574417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0.45, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52726,7 +52728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaa80d5eb50c4253953ba551207f0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 150
   targetCheck: {fileID: 2118626773}
   targetCheckRadius: 1
   whatIsTarget:
@@ -52803,10 +52805,12 @@ MonoBehaviour:
       baseValue: 0
   offence:
     damage:
-      baseValue: 0
+      baseValue: 10
     critPower:
       baseValue: 0
     critchance:
+      baseValue: 0
+    aramorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0
@@ -52815,7 +52819,7 @@ MonoBehaviour:
     lightningDamage:
       baseValue: 0
   maxHealth:
-    baseValue: 100
+    baseValue: 1000
 --- !u!1 &1938637883
 GameObject:
   m_ObjectHideFlags: 0
