@@ -41,3 +41,4 @@ UnityPackageManager/
 *.unitypackage
 
 .fake
+.plastic/

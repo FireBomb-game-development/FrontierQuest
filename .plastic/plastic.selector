@@ -1,4 +1,0 @@
-repository "FrontierQuest/FrontierQuest@18967691221063@cloud"
-  path "/"
-    br "/main"
-    co "/main"
