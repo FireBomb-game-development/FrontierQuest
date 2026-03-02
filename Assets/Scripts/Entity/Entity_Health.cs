@@ -29,7 +29,7 @@ public class Entity_Health : MonoBehaviour , IDamagable
         currentHP = stats.GetMaxHealth();
         UpdateHealthBar();
     }
-    public virtual bool TakeDamage(float damage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage,float elementalDamage, Transform damageDealer)
     {
         if (isDead) return false;
         if (AttackEvaded())
@@ -47,7 +47,7 @@ public class Entity_Health : MonoBehaviour , IDamagable
         entity?.ReciveKnockBack(knockback, duration);
         entityVfx?.PlayOnDamageVfx();
         ReduceHp(finalDamage);
-        Debug.Log("final damage is:" +finalDamage);
+        Debug.Log("elemental damage takem:" +elementalDamage);
 
     
         return true;

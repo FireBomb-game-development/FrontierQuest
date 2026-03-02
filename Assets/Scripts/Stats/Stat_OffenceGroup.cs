@@ -9,7 +9,7 @@ public class Stat_OffenceGroup
 
     public Stat damage;
     public Stat critPower;
-    public Stat critchance;
+    public Stat critChance;
     public Stat aramorReduction;
 
     // Elemental Damage

@@ -1861,6 +1861,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfx: {fileID: 0}
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  critHitVfx: {fileID: 0}
 --- !u!1 &935213203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,7 +2048,7 @@ Transform:
   m_GameObject: {fileID: 1042336947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.29, y: 3.25, z: 0}
+  m_LocalPosition: {x: -10, y: 3.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2092,7 +2093,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.01758188, y: -0.29069102}
+  m_Offset: {x: -0.02, y: -0.29069102}
   m_Size: {x: 0.6289339, y: 1.9040606}
   m_Direction: 0
 --- !u!50 &1042336951
@@ -2155,8 +2156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: 954b70b216e9a4f429487f8a11b27dbe, type: 2}
   onDamageVfxDuration: 0.2
-  hitVfx: {fileID: 505416389014312708, guid: 46f6e6a2b6ff746caa2116c85379c78b, type: 3}
+  hitVfx: {fileID: 8416032535678125976, guid: 5d7a0b69cd9bb493cb1b170307b8a170, type: 3}
   hitVfxColor: {r: 0.98564017, g: 1, b: 0, a: 1}
+  critHitVfx: {fileID: 7760121627497574251, guid: 7156412f7f5554cd581d60bc9fd0cd0d, type: 3}
 --- !u!114 &1042336955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,7 +2215,7 @@ MonoBehaviour:
       baseValue: 10
     critPower:
       baseValue: 250
-    critchance:
+    critChance:
       baseValue: 60
     aramorReduction:
       baseValue: 0
@@ -16845,7 +16847,7 @@ Transform:
   m_GameObject: {fileID: 1669574417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0.46, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52767,8 +52769,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: 954b70b216e9a4f429487f8a11b27dbe, type: 2}
   onDamageVfxDuration: 0.2
-  hitVfx: {fileID: 505416389014312708, guid: 46f6e6a2b6ff746caa2116c85379c78b, type: 3}
+  hitVfx: {fileID: 8416032535678125976, guid: 5d7a0b69cd9bb493cb1b170307b8a170, type: 3}
   hitVfxColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 1}
+  critHitVfx: {fileID: 7760121627497574251, guid: 7156412f7f5554cd581d60bc9fd0cd0d, type: 3}
   attackAlert: {fileID: 1575136300}
   showAlert: 0
 --- !u!114 &1902180996
@@ -52808,16 +52811,16 @@ MonoBehaviour:
       baseValue: 10
     critPower:
       baseValue: 0
-    critchance:
+    critChance:
       baseValue: 0
     aramorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 10
     iceDamage:
-      baseValue: 0
+      baseValue: 7
     lightningDamage:
-      baseValue: 0
+      baseValue: 6
   maxHealth:
     baseValue: 1000
 --- !u!1 &1938637883
@@ -52845,7 +52848,7 @@ Transform:
   m_GameObject: {fileID: 1938637883}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.29, y: -0.29, z: 0}
+  m_LocalPosition: {x: 1.32, y: -0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
