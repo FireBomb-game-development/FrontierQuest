@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -38,6 +39,27 @@ public class Enemy : Entity
     public Transform player { get; private set; }
 
 
+
+    protected override IEnumerator SlowDownEntityCo(float duration, float multiplier)
+    {
+        
+        float originalBattleMoveSpeed = battleMoveSpeed;
+        float originalMoveSpeed = moveSpeed;
+        float originalAnimSpeed = anim.speed;
+
+        float speedMultiplier = 1- multiplier;
+
+        anim.speed *= speedMultiplier;
+        battleMoveSpeed *= speedMultiplier;
+        moveSpeed *= speedMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        anim.speed = originalAnimSpeed;
+        battleMoveSpeed = originalBattleMoveSpeed;
+        moveSpeed = originalMoveSpeed;
+
+    }
     public void SetCounterWindow(bool enable) => canBeStunned = enable;
 
     public override void EntityDeath()

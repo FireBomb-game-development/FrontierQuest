@@ -29,33 +29,43 @@ public class Entity_Health : MonoBehaviour , IDamagable
         currentHP = stats.GetMaxHealth();
         UpdateHealthBar();
     }
-    public virtual bool TakeDamage(float damage,float elementalDamage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage,float elementalDamage,ElementalType element,
+    Transform damageDealer)
     {
         if (isDead) return false;
         if (AttackEvaded())
         {
-            Debug.Log($"{gameObject.name} attack Evaded");
+            Debug.Log($"{gameObject.name} evaded the attack");
             return false;
-        } 
+        }
         EntityStats attackerStats = damageDealer.GetComponent<EntityStats>();
-        float aramorReduction = attackerStats != null? attackerStats.GetArmorReduction():0;
+        float aramorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0;
         float mitigation = stats.GetArmorMitigation(aramorReduction);
-        float finalDamage = damage *( 1 - mitigation);
+        float physicalDamageTaken = damage * (1 - mitigation);
 
+        float ElementalResistence = stats.GetElementalResistence(element);
+        float elementalDamageTaken = elementalDamage * (1 - ElementalResistence);
+
+        TakeKnockback(damageDealer, physicalDamageTaken);
+        ReduceHp(physicalDamageTaken+ elementalDamageTaken);
+
+
+
+        return true;
+    }
+
+    private void TakeKnockback(Transform damageDealer, float finalDamage)
+    {
         Vector2 knockback = CalculateKnockback(finalDamage, damageDealer);
         float duration = CalculateDuration(finalDamage);
         entity?.ReciveKnockBack(knockback, duration);
-        entityVfx?.PlayOnDamageVfx();
-        ReduceHp(finalDamage);
-        Debug.Log("elemental damage takem:" +elementalDamage);
-
-    
-        return true;
     }
+
     public bool AttackEvaded() => UnityEngine.Random.Range(0, 100) < stats.getEvasion();
 
     protected void ReduceHp(float damage)
     {
+        entityVfx?.PlayOnDamageVfx();
         currentHP -= damage;
         UpdateHealthBar();
         if (currentHP <= 0) Die();

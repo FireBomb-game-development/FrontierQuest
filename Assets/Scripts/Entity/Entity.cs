@@ -3,6 +3,7 @@ using System.Collections;
 
 using UnityEditor.ShaderGraph.Internal;
 using System;
+using Unity.IO.LowLevel.Unsafe;
 
 public class Entity : MonoBehaviour
 {
@@ -28,9 +29,12 @@ public class Entity : MonoBehaviour
     [SerializeField] private Transform secondaryWallCheck;
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
+    
 
+    // condition veriables and corutine
     private bool isKnocked;
     private Coroutine knockBackCo;
+    private Coroutine slowdownCo;
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -77,6 +81,17 @@ public class Entity : MonoBehaviour
         yield return new WaitForSeconds(duration);
         rb.linearVelocity = Vector2.zero;
         isKnocked = false;
+    }
+
+
+    public virtual void SlowDownEntity(float duration, float multiplier)
+    {
+        if(slowdownCo != null) StopCoroutine(slowdownCo);
+        slowdownCo = StartCoroutine(SlowDownEntityCo(duration,multiplier));
+    }
+    protected virtual IEnumerator SlowDownEntityCo(float duration, float multiplier)
+    {
+        yield return null;
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections;
 
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Player : Entity
 {
@@ -95,7 +96,35 @@ public class Player : Entity
     }
 
 
+    protected override IEnumerator SlowDownEntityCo(float duration, float multiplier)
+    {
+        float originalMoveSpeed = moveSpeed;
+        float originalJumpForce = jumpForce;
+        float originalAnimSpeed = anim.speed;
+        Vector2 originalJumpAttackVelocity = jumpAttackVelocity;
+        Vector2 originalWallJumpForce = wallJumpForce;
+        Vector2[] originalAttackVelocity = new Vector2[attackVelocity.Length];
+        Array.Copy(attackVelocity, originalAttackVelocity, attackVelocity.Length);
 
+        float speedMultiplier = 1-multiplier;
+
+        moveSpeed *= speedMultiplier;
+        jumpForce *= speedMultiplier;
+        anim.speed *= speedMultiplier;
+        jumpAttackVelocity *= speedMultiplier;
+        wallJumpForce *= speedMultiplier;
+        for(int i=0;i<attackVelocity.Length;i++)attackVelocity[i] *= speedMultiplier;
+        
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed =originalMoveSpeed;
+        jumpForce =originalJumpForce;
+        anim.speed = originalAnimSpeed;
+        jumpAttackVelocity = originalJumpAttackVelocity;
+        wallJumpForce = originalWallJumpForce;
+        for(int i=0;i<attackVelocity.Length;i++)attackVelocity[i] = originalAttackVelocity[i];
+
+    }
     private void OnEnable()
     {
         input.Enable();

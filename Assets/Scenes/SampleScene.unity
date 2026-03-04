@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.58, y: 0.99}
+  m_AnchoredPosition: {x: 0.01, y: 0.99}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159088388
@@ -1862,6 +1862,7 @@ MonoBehaviour:
   hitVfx: {fileID: 0}
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   critHitVfx: {fileID: 0}
+  chillVfx: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &935213203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +1999,7 @@ GameObject:
   - component: {fileID: 1042336953}
   - component: {fileID: 1042336954}
   - component: {fileID: 1042336956}
+  - component: {fileID: 1042336957}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2159,6 +2161,7 @@ MonoBehaviour:
   hitVfx: {fileID: 8416032535678125976, guid: 5d7a0b69cd9bb493cb1b170307b8a170, type: 3}
   hitVfxColor: {r: 0.98564017, g: 1, b: 0, a: 1}
   critHitVfx: {fileID: 7760121627497574251, guid: 7156412f7f5554cd581d60bc9fd0cd0d, type: 3}
+  chillVfx: {r: 0, g: 0.72499114, b: 0.7924528, a: 1}
 --- !u!114 &1042336955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,6 +2180,8 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 512
+  defualtDuratuion: 3
+  chillSlowMultiplier: 0.2
   counterRecovery: 0.3
 --- !u!114 &1042336956
 MonoBehaviour:
@@ -2196,7 +2201,7 @@ MonoBehaviour:
     agility:
       baseValue: 0
     intelegence:
-      baseValue: 0
+      baseValue: 10
     vitality:
       baseValue: 0
   defence:
@@ -2207,7 +2212,7 @@ MonoBehaviour:
     fireRes:
       baseValue: 0
     iceRes:
-      baseValue: 0
+      baseValue: 70
     lightningRes:
       baseValue: 0
   offence:
@@ -2222,11 +2227,23 @@ MonoBehaviour:
     fireDamage:
       baseValue: 0
     iceDamage:
-      baseValue: 0
+      baseValue: 50
     lightningDamage:
       baseValue: 0
   maxHealth:
     baseValue: 10000
+--- !u!114 &1042336957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042336947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d550d0b50100f482e990e43a193f611b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1094868562
 GameObject:
   m_ObjectHideFlags: 0
@@ -52590,6 +52607,7 @@ GameObject:
   - component: {fileID: 1902180994}
   - component: {fileID: 1902180995}
   - component: {fileID: 1902180996}
+  - component: {fileID: 1902180997}
   m_Layer: 9
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -52736,6 +52754,8 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
+  defualtDuratuion: 3
+  chillSlowMultiplier: 0.2
 --- !u!114 &1902180994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52772,6 +52792,7 @@ MonoBehaviour:
   hitVfx: {fileID: 8416032535678125976, guid: 5d7a0b69cd9bb493cb1b170307b8a170, type: 3}
   hitVfxColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 1}
   critHitVfx: {fileID: 7760121627497574251, guid: 7156412f7f5554cd581d60bc9fd0cd0d, type: 3}
+  chillVfx: {r: 0, g: 0.7254902, b: 0.7921569, a: 1}
   attackAlert: {fileID: 1575136300}
   showAlert: 0
 --- !u!114 &1902180996
@@ -52801,11 +52822,11 @@ MonoBehaviour:
     evasion:
       baseValue: 0
     fireRes:
-      baseValue: 0
+      baseValue: 50
     iceRes:
-      baseValue: 0
+      baseValue: 50
     lightningRes:
-      baseValue: 0
+      baseValue: 50
   offence:
     damage:
       baseValue: 10
@@ -52816,13 +52837,25 @@ MonoBehaviour:
     aramorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 10
+      baseValue: 0
     iceDamage:
-      baseValue: 7
+      baseValue: 50
     lightningDamage:
-      baseValue: 6
+      baseValue: 0
   maxHealth:
     baseValue: 1000
+--- !u!114 &1902180997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902180988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d550d0b50100f482e990e43a193f611b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1938637883
 GameObject:
   m_ObjectHideFlags: 0
