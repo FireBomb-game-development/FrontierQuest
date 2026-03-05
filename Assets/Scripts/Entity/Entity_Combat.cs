@@ -16,6 +16,7 @@ public class Entity_Combat : MonoBehaviour
     [Header("Status effect details")]
     [SerializeField] public float defualtDuratuion =3;
     [SerializeField] public float chillSlowMultiplier= 0.2f;
+    [SerializeField] public float burnedDamage = 10;
 
 
     public void Awake()
@@ -29,7 +30,7 @@ public class Entity_Combat : MonoBehaviour
         {
             IDamagable damegable = target.GetComponent<IDamagable>();
             if(damegable== null)continue;
-            float elementalDamage = stats.GetElementalDamage(out ElementalType element);
+            float elementalDamage = stats.GetElementalDamage(out ElementalType element ,.6f);
 
             float damage =  stats.GetPhyisicalDamage(out bool isCrit);
             
@@ -46,15 +47,18 @@ public class Entity_Combat : MonoBehaviour
     }
 
     
-    public void ApplyStatusEffect(Transform target, ElementalType element)
+    public void ApplyStatusEffect(Transform target, ElementalType element, float scaleFactor =1)
     {
         Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
 
         if(statusHandler == null)return;
 
-        if(element == ElementalType.Ice && statusHandler.canBeApplied(ElementalType.Ice))
+        if(element == ElementalType.Ice && statusHandler.canBeApplied(ElementalType.Ice))statusHandler.ApplyChillEffect(defualtDuratuion, chillSlowMultiplier *scaleFactor);
+        
+        if(element ==  ElementalType.Fire && statusHandler.canBeApplied(ElementalType.Fire))
         {
-            statusHandler.ApplyChillEffect(defualtDuratuion, chillSlowMultiplier);
+            float fireDamage = stats.offence.fireDamage.GetValue() * scaleFactor;
+            statusHandler.ApplyBurnEffect(defualtDuratuion,fireDamage);
         }
 
     }

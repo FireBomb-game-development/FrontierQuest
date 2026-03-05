@@ -1863,6 +1863,7 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   critHitVfx: {fileID: 0}
   chillVfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &935213203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,6 +2163,7 @@ MonoBehaviour:
   hitVfxColor: {r: 0.98564017, g: 1, b: 0, a: 1}
   critHitVfx: {fileID: 7760121627497574251, guid: 7156412f7f5554cd581d60bc9fd0cd0d, type: 3}
   chillVfx: {r: 0, g: 0.72499114, b: 0.7924528, a: 1}
+  burnVfx: {r: 1, g: 0.44892484, b: 0, a: 1}
 --- !u!114 &1042336955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,6 +2184,7 @@ MonoBehaviour:
     m_Bits: 512
   defualtDuratuion: 3
   chillSlowMultiplier: 0.2
+  burnedDamage: 10
   counterRecovery: 0.3
 --- !u!114 &1042336956
 MonoBehaviour:
@@ -2217,17 +2220,17 @@ MonoBehaviour:
       baseValue: 0
   offence:
     damage:
-      baseValue: 10
+      baseValue: 0
     critPower:
       baseValue: 250
     critChance:
-      baseValue: 60
+      baseValue: 12
     aramorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 100
     iceDamage:
-      baseValue: 50
+      baseValue: 0
     lightningDamage:
       baseValue: 0
   maxHealth:
@@ -52756,6 +52759,7 @@ MonoBehaviour:
     m_Bits: 256
   defualtDuratuion: 3
   chillSlowMultiplier: 0.2
+  burnedDamage: 10
 --- !u!114 &1902180994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52793,6 +52797,7 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 1}
   critHitVfx: {fileID: 7760121627497574251, guid: 7156412f7f5554cd581d60bc9fd0cd0d, type: 3}
   chillVfx: {r: 0, g: 0.7254902, b: 0.7921569, a: 1}
+  burnVfx: {r: 1, g: 0.4509804, b: 0, a: 1}
   attackAlert: {fileID: 1575136300}
   showAlert: 0
 --- !u!114 &1902180996
@@ -52822,7 +52827,7 @@ MonoBehaviour:
     evasion:
       baseValue: 0
     fireRes:
-      baseValue: 50
+      baseValue: 0
     iceRes:
       baseValue: 50
     lightningRes:

@@ -12,7 +12,7 @@ public class EntityStats : MonoBehaviour
 
 
 
-    public float GetElementalDamage(out ElementalType element)
+    public float GetElementalDamage(out ElementalType element, float scaleFactor =1)
     {
         float fireDamage = offence.fireDamage.GetValue();
         float iceDamage = offence.iceDamage.GetValue();
@@ -46,7 +46,7 @@ public class EntityStats : MonoBehaviour
         float weakerElementDamage = bonusFire + bonusIce + bonusLightning;
         float finalDamage = highestDamage + weakerElementDamage + bonusElemntalDamage;
 
-        return finalDamage;
+        return finalDamage * scaleFactor;
     }
 
     public float GetElementalResistence(ElementalType element)
