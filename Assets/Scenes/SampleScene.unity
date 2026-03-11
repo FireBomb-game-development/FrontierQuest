@@ -2139,8 +2139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193214bed36a349299db8876227c9e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
+  currentHealth: 0
   isDead: 0
+  reganInerval: 1
+  canReganerateHealth: 1
   knockBackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
   KnockBackDuration: 0.2
@@ -2223,6 +2225,8 @@ MonoBehaviour:
     lightningRes:
       baseValue: 0
   offence:
+    attackSpeed:
+      baseValue: 1
     damage:
       baseValue: 15
     critPower:
@@ -2232,13 +2236,16 @@ MonoBehaviour:
     aramorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 100
     iceDamage:
       baseValue: 0
     lightningDamage:
       baseValue: 0
-  maxHealth:
-    baseValue: 10000
+  resources:
+    maxHealth:
+      baseValue: 1000
+    healthRegen:
+      baseValue: 40
 --- !u!114 &1042336957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52781,8 +52788,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a76451df056f4db893141786c865fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
+  currentHealth: 0
   isDead: 0
+  reganInerval: 1
+  canReganerateHealth: 1
   knockBackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
   KnockBackDuration: 0.2
@@ -52843,8 +52852,10 @@ MonoBehaviour:
     lightningRes:
       baseValue: 0
   offence:
+    attackSpeed:
+      baseValue: 1
     damage:
-      baseValue: 10
+      baseValue: 150
     critPower:
       baseValue: 0
     critChance:
@@ -52857,8 +52868,11 @@ MonoBehaviour:
       baseValue: 0
     lightningDamage:
       baseValue: 0
-  maxHealth:
-    baseValue: 1000
+  resources:
+    maxHealth:
+      baseValue: 1000
+    healthRegen:
+      baseValue: 0
 --- !u!114 &1902180997
 MonoBehaviour:
   m_ObjectHideFlags: 0

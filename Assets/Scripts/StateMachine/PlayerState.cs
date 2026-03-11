@@ -12,6 +12,7 @@ public abstract class PlayerState : EntityState
         anim = player.GetComponentInChildren<Animator>();
         rb = player.rb;
         input = player.input;
+        stats = player.stats;
     }
 
 

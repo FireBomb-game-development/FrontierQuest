@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy_AttackState : EnemyState
@@ -7,6 +8,12 @@ public class Enemy_AttackState : EnemyState
     }
 
 
+
+    public override void Enter()
+    {
+        base.Enter();
+        SyncAttackSpeed();
+    }
 
     public override void Update()
     {

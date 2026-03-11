@@ -7,6 +7,8 @@ public class Stat_OffenceGroup
 
     //Physical Damage Stat
 
+    public Stat attackSpeed;
+
     public Stat damage;
     public Stat critPower;
     public Stat critChance;

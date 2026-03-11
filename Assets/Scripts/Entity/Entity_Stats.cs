@@ -7,7 +7,7 @@ public class EntityStats : MonoBehaviour
     public Stat_MajorGroup major;
     public Stat_DefenceGroup defence;
     public Stat_OffenceGroup offence;
-    public Stat maxHealth;
+    public Stat_ReasourceGroup resources;
 
 
 
@@ -76,7 +76,7 @@ public class EntityStats : MonoBehaviour
     public float GetMaxHealth()
     {
 
-        float baseHp = maxHealth.GetValue();
+        float baseHp = resources.maxHealth.GetValue();
         float bonusHp = major.vitality.GetValue();
         return baseHp + bonusHp * 5;
     }
