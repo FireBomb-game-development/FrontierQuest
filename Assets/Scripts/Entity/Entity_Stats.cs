@@ -18,7 +18,7 @@ public class EntityStats : MonoBehaviour
         float iceDamage = offence.iceDamage.GetValue();
         float lightningDamage = offence.lightningDamage.GetValue();
         
-        float bonusElemntalDamage = major.intelegence.GetValue();// bonus 1 elemental damage for each intelegence point
+        float bonusElemntalDamage = major.intelligence.GetValue();// bonus 1 elemental damage for each intelegence point
 
         float highestDamage = fireDamage;
 
@@ -52,7 +52,7 @@ public class EntityStats : MonoBehaviour
     public float GetElementalResistence(ElementalType element)
     {
        float baseElementalResistence = 0;
-       float bonusElementalResistemce = major.intelegence.GetValue() * .5f; // 0.5 bonus resistence point for each intelegnce point
+       float bonusElementalResistemce = major.intelligence.GetValue() * .5f; // 0.5 bonus resistence point for each intelegnce point
 
         switch (element)
         {
@@ -102,7 +102,7 @@ public class EntityStats : MonoBehaviour
 
     public float GetArmorReduction()
     {
-        float finalReduction =  offence.aramorReduction.GetValue()/100;
+        float finalReduction =  offence.armorReduction.GetValue()/100;
         return finalReduction;
 
     }
@@ -135,6 +135,33 @@ public class EntityStats : MonoBehaviour
         float finalDamage = isCrit ? totalBaseDamage * critPower : totalBaseDamage;
 
         return finalDamage * scaleFactor;
+    }
+    public Stat GetStatByType(StatType type)
+    {
+        switch (type)
+        {
+            case StatType.MaxHealth: return resources.maxHealth;
+            case StatType.HealthRegen: return resources.healthRegen;
+            case StatType.Strength: return major.strength;
+            case StatType.Agility: return major.agility;
+            case StatType.Intelligence: return major.intelligence;
+            case StatType.Vitality: return major.vitality;
+            case StatType.AttackSpeed: return offence.attackSpeed;
+            case StatType.Damage: return offence.damage;
+            case StatType.CritChance: return offence.critChance;
+            case StatType.CritPower: return offence.critPower;
+            case StatType.ArmorReduction: return offence.armorReduction;
+            case StatType.FireDamage: return offence.fireDamage;
+            case StatType.IceDamage: return offence.iceDamage;
+            case StatType.LightningDamage: return offence.lightningDamage;
+            case StatType.Armor: return defence.armor;
+            case StatType.Evasion: return defence.evasion;
+            case StatType.IceResistance: return defence.iceRes;
+            case StatType.FireResistance: return defence.fireRes;
+            case StatType.LightningResistance: return defence.lightningRes;
+            default:
+                Debug.LogWarning($"statType {type} not implemented yet."); return null;
+        }
     }
 
 }

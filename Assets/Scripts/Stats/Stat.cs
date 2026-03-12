@@ -1,14 +1,62 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
 public class Stat
 {
-    [SerializeField] public float baseValue;
+    [SerializeField] private float baseValue;
+    [SerializeField] private List<StatModifier> modifiers = new List<StatModifier>();
+    private bool needToBeCalcuated =true;
+    private float finalValue;
 
     public float GetValue()
     {
-        return baseValue;
+        if (needToBeCalcuated)
+        {
+            finalValue = getFinalValue();
+            needToBeCalcuated =false;
+        }
+        return finalValue;
     }
 
+
+
+    public void AddModifier(float value, string source)
+    {
+        StatModifier modifier = new StatModifier(value, source);
+        
+        modifiers.Add(modifier);
+        needToBeCalcuated =true;
+    }
+    public void RemoveModifier( string source){
+        modifiers.RemoveAll(modifier => modifier.source == source);
+        needToBeCalcuated =true;
+        }
+        
+
+
+    public float getFinalValue()
+    {
+        float finalValue = baseValue;
+
+        foreach(var modifier in modifiers)finalValue += modifier.value;
+        return finalValue;
+    }
+}
+
+
+
+
+[Serializable]
+public class StatModifier
+{
+    public float value;
+    public string source;
+
+    public StatModifier(float value, string source)
+    {
+        this.value = value;
+        this.source = source;
+    }
 }
