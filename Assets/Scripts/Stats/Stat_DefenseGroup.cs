@@ -3,7 +3,7 @@ using UnityEngine;
 
 [Serializable]
 
-public class Stat_DefenceGroup
+public class Stat_DefenseGroup
 {
 
 

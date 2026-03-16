@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class Stat_ReasourceGroup 
+public class Stat_ResourceGroup 
 {
 
 public Stat maxHealth;

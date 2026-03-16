@@ -14,7 +14,7 @@ public class Stat
     {
         if (needToBeCalcuated)
         {
-            finalValue = getFinalValue();
+            finalValue = GetFinalValue();
             needToBeCalcuated =false;
         }
         return finalValue;
@@ -36,7 +36,9 @@ public class Stat
         
 
 
-    public float getFinalValue()
+
+    public void SetBaseValue(float value) => baseValue = value;
+    public float GetFinalValue()
     {
         float finalValue = baseValue;
 
