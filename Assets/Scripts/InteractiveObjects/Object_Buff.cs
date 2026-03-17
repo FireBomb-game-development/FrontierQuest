@@ -22,7 +22,7 @@ private EntityStats statsToModify;
 [Header("Buff Details")]
 [SerializeField] private Buff[] Buffs;
 [SerializeField] private string buffName;
-[SerializeField] private float buffValue =5;
+// [SerializeField] private float buffValue =5;
 
 [SerializeField] private float buffDuration =4;
 [SerializeField] private bool canBeUsed = true;
