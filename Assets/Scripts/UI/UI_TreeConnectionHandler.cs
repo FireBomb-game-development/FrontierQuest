@@ -14,7 +14,7 @@ public class UI_TreeConnectionDetails
 
 public class UI_TreeConnectionHandler : MonoBehaviour
 {
-    private RectTransform rect;
+    private RectTransform rect=> GetComponent<RectTransform>();
     [SerializeField] private UI_TreeConnectionDetails[] connectionDetails;
     [SerializeField] private Ui_TreeConnection[] connections;
 
@@ -23,7 +23,7 @@ public class UI_TreeConnectionHandler : MonoBehaviour
 
     private void OnValidate()
     {
-        if(rect == null) rect = GetComponent<RectTransform>();
+        if(connectionDetails.Length <=0)return;
         if(connectionDetails.Length != connections.Length)
         {
             Debug.Log("Amount of details should be same as amount of connetions. - "+ gameObject.name);
@@ -43,7 +43,7 @@ public class UI_TreeConnectionHandler : MonoBehaviour
 
             Vector2 targetPosition = connection.GetConnectionPoint(rect);
             connection.DirectConnection(detail.direction,detail.length);
-            detail.childNode.SetPosition(targetPosition);
+            detail.childNode?.SetPosition(targetPosition);
             
         } 
     }

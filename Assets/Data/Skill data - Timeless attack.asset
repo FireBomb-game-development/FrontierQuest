@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf7da9dab1b52400cafc505db9019956, type: 3}
-  m_Name: Skill data - Time echo
+  m_Name: Skill data - Timeless attack
   m_EditorClassIdentifier: 
-  cost: 1
-  header: Time echo
-  description: Create a dummy clone of yorself, the dummy clone distracts enemis.
-  icon: {fileID: 1936022637, guid: a26334be163d64f18abc409b986061a3, type: 3}
+  cost: 2
+  header: Timeless attack
+  description: Time Echo will attack once
+  icon: {fileID: -422392836, guid: a26334be163d64f18abc409b986061a3, type: 3}
