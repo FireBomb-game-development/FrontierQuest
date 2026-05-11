@@ -218,6 +218,6 @@ Current prefabs in `Assets/Prefab`:
 - Use `StatType` and `EntityStats.GetStatByType` when adding buffs that modify stats.
 - Input changes should be made in `PlayerInputSet.inputactions`, then the generated `PlayerInputSet.cs` should be updated by Unity.
 
-## Known Scope
+## Development Status
 
-This repository currently appears to be a prototype project. It includes runtime gameplay systems and content assets, but no dedicated automated test suite or build scripts were found in the project root.
+FrontierQuest is currently under development. A playable demo will be uploaded to itch.io soon.
